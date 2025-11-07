@@ -8,6 +8,9 @@ int lcd_init(void);
 int lcd_write_data(uint8_t addr, const uint8_t *data, size_t len);
 int lcd_clear(void);
 int lcd_test_all_segments(void);
-void lcd_test_walking_segments(void);
+void lcd_test_walking_active_segments(void);
+void lcd_test_mapping (void);
+void lcd_test_walk_by_S(void);
+int lcd_test_active_segments(void);
 
 #endif

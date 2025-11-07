@@ -15,6 +15,6 @@ void main(void)
     }
 
     k_msleep(200);
-    lcd_test_all_segments();
+    int ret2 = lcd_test_active_segments();
     LOG_INF("All segments ON");
 }
