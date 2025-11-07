@@ -1,6 +1,20 @@
 #include <zephyr/kernel.h>
+#include <zephyr/logging/log.h>
+#include "lcd_driver.h"
 
-int main(void)
+LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
+
+void main(void)
 {
-        return 0;
+    LOG_INF("=== PCF8576 LCD Demo ===");
+
+    int ret = lcd_init();
+    if (ret) {
+        LOG_ERR("LCD init failed: %d", ret);
+        return;
+    }
+
+    k_msleep(200);
+    lcd_test_all_segments();
+    LOG_INF("All segments ON");
 }

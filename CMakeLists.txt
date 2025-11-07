@@ -3,4 +3,6 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
 project(handheld)
 
-target_sources(app PRIVATE src/main.c)
+target_include_directories(app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+
+target_sources(app PRIVATE src/main.c src/lcd_segments.c src/lcd_driver.c)

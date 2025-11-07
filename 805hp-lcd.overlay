@@ -1,0 +1,16 @@
+/* PCF8576 LCD I2C Configuration for 805HP-LCD Board */
+
+&i2c0 {
+    compatible = "nordic,nrf-twim";
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_STANDARD>;
+    
+    /* Increase buffer size for PCF8576 40-byte writes */
+    zephyr,concat-buf-size = <48>;
+};
+
+/ {
+    aliases {
+        i2c-lcd0 = &i2c0;
+    };
+};
